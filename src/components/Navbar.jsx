@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <div className="navbar bg-white px-6 shadow-md">
+      <div className="navbar bg-white px-4 shadow-md">
         <div className="flex-1">
           <h1 className="text-3xl font-bold text-brand-primary">ধৈর্য</h1>
         </div>
@@ -58,7 +58,9 @@ const Navbar = () => {
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-300">
             <h2 className="text-3xl font-bold">ধৈর্য</h2>
-            <button onClick={() => setOpen(false)} className="text-xl">
+            <button
+              onClick={() => setOpen(false)}
+              className="text-xl cursor-pointer">
               ✕
             </button>
           </div>
