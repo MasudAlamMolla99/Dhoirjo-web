@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@theme {
+  /* Creating a brand new color */
+  --color-brand-primary: #008e48;
+  --color-brand-secondary: #006648;
+}
