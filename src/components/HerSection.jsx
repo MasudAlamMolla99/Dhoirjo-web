@@ -6,7 +6,7 @@ const HeroSection = () => {
 
   return (
     <div
-      className="relative w-full h-[50vh] md:min-h-screen bg-cover bg-center bg-no-repeat flex items-start md:items-center"
+      className="relative w-full h-[40vh] md:min-h-screen bg-cover bg-center bg-no-repeat flex items-start md:items-center"
       style={{ backgroundImage: bgImage }}>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 md:bg-black/60"></div>
