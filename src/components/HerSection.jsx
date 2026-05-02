@@ -12,7 +12,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/50 md:bg-black/60"></div>
 
       {/* Content */}
-      <div className="relative z-10 px-4 md:px-10 text-white max-w-xl md:mt-0">
+      <div className="relative z-10 px-4 md:px-10 text-white max-w-xl mt-11">
         <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-3 md:mb-5">
           ধৈর্য ফাউন্ডেশন
         </h1>
