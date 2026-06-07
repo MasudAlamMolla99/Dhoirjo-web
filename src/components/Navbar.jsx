@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
@@ -66,24 +67,27 @@ const Navbar = () => {
           </div>
 
           {/* ✅ Menu List */}
-          <ul className="p-4 space-y-3">
-            {menus.map((item) => (
-              <li
-                key={item}
-                onClick={() => {
-                  setActive(item.name); // ✅ set active
-                  setOpen(false);
-                }}
-                className={`p-2  cursor-pointer transition-all duration-200 text-xl
-                  ${
-                    active === item.name
-                      ? "text-brand-primary inline-block border-b-2 border-brand-primary font-semibold"
-                      : "text-gray-700 hover:bg-gray-100"
-                  }`}>
-                {item.name}
-              </li>
-            ))}
-          </ul>
+         <ul className="p-4 space-y-3">
+  {menus.map((item) => (
+    <li
+      key={item.name}
+      onClick={() => {
+        setActive(item.name);
+        setOpen(false);
+      }}>
+      <Link
+        to={item.path}
+        className={`p-2 cursor-pointer transition-all duration-200 text-xl block
+          ${
+            active === item.name
+              ? "text-brand-primary inline-block border-b-2 border-brand-primary font-semibold"
+              : "text-gray-700 hover:bg-gray-100"
+          }`}>
+        {item.name}
+      </Link>
+    </li>
+  ))}
+</ul>
         </div>
 
         {/* Bottom section */}

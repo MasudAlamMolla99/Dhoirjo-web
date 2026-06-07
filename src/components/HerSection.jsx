@@ -6,20 +6,20 @@ const HeroSection = () => {
 
   return (
     <div
-      className="relative w-full h-[40vh] md:min-h-screen bg-cover bg-center bg-no-repeat flex items-start md:items-center"
+      className="relative w-full h-[35vh] md:min-h-screen bg-cover bg-center bg-no-repeat flex items-start md:items-center"
       style={{ backgroundImage: bgImage }}>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 md:bg-black/60"></div>
 
       {/* Content */}
-      <div className="relative z-10 px-4 md:px-10 text-white max-w-xl mt-11">
+      <div className="relative z-10 px-4 lg:ml-48 md:px-10 text-white max-w-xl mt-11 md:mt-0">
         <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-3 md:mb-5">
           ধৈর্য ফাউন্ডেশন
         </h1>
 
-        <p className="text-lg mb-4 md:mb-6 leading-relaxed">
-          কুরআন ও হাদিসের আলোকে ধৈর্যের গুরুত্ব, জীবনের শিক্ষা এবং অন্তরের
-          শান্তি খুঁজে পাওয়ার এক নির্ভরযোগ্য জায়গা।
+        <p className="text-lg mb-4 md:mb-6 w-3/4">
+          কুরআন ও হাদিসের আলোকে ধৈর্য (সবর) মানুষের জীবনের এক গুরুত্বপূর্ণ গুণ,
+          যা কষ্টের সময় শক্তি দেয় এবং সঠিক পথে অটল থাকতে সাহায্য করে।
         </p>
 
         <div className="flex gap-3 md:gap-4">

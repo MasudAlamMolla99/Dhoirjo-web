@@ -1,20 +1,27 @@
-import Navbar from "./components/Navbar";
-import React from "react";
-import HeroSection from "./components/HerSection";
-import "./App.css";
+import { Routes, Route, Link } from "react-router-dom";
 
-const App = () => {
+import Home from "./pages/Home";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+import Navbar from "./components/Navbar";
+import "./App.css"
+import Post from "./pages/Post";
+
+function App() {
   return (
     <>
-      <Navbar />
-      <HeroSection />
-      <div className="flex gap-3 p-8">
-        <button className="btn btn-primary">Primary</button>
-        <button className="btn btn-secondary">Secondary</button>
-        <button className="btn btn-accent">Accent</button>
-      </div>
+    <Navbar/>
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+           <Route path="/post/:id" element={<Post />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      
     </>
   );
-};
+}
 
 export default App;
