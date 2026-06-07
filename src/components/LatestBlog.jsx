@@ -180,7 +180,7 @@ export default function LatestBlog() {
 
   return (
     
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4 sm:mt-6">
       {categoryFilter && <h2>Category: {categoryFilter}</h2>}
       {tagFilter && <h2>Tag: #{tagFilter}</h2>}
 
