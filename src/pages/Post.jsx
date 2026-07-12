@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 import {
   doc,
   getDoc,
@@ -139,10 +140,15 @@ export default function Post() {
       </div>
     );
   }
+ 
+const markdown = post.content || post.excerpt;
+const isArabic = (text) =>
+  /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(text);
 
   return (
     <>
       {/* Main Post */}
+   { console.log(markdown)}
       <article className="max-w-4xl mx-auto px-4 py-5 md:py-10">
         <h1 className="text-[clamp(28px,4vw,34px)] md:text-5xl font-bold text-teal-800 leading-relaxed md:leading-tight mb-6">
           {post.title}
@@ -166,52 +172,121 @@ export default function Post() {
           </figure>
         )}
 
-        <div
-          ref={postBodyRef}
-          className="
-            prose
-            prose-lg
-            max-w-none
-            prose-headings:text-teal-800
-            prose-headings:font-bold
-            prose-p:text-teal-700
-            prose-p:leading-relaxed
-            prose-p:mb-3
-            prose-a:text-blue-600
-            prose-strong:text-teal-800
-            prose-strong:font-bold
-            prose-img:rounded-xl
-            prose-ul:text-teal-700
-            prose-ol:text-teal-700
-            prose-li:text-teal-700
-            prose-blockquote:border-l-4
-            prose-blockquote:border-teal-200
-            prose-blockquote:bg-teal-50/50
-            prose-blockquote:px-4
-            prose-blockquote:py-2
-            prose-blockquote:rounded-md
-            prose-blockquote:not-italic
-            [&_h2]:text-[22px]
-            [&_h2]:md:text-2xl
-            [&_h2]:font-bold
-            [&_h2]:text-teal-800
-            [&_h2]:mt-6
-            [&_h2]:mb-3
-            [&_h2]:leading-relaxed
-            [&_h3]:text-[19px]
-            [&_h3]:md:text-xl
-            [&_h3]:font-semibold
-            [&_h3]:text-teal-800
-            [&_h3]:mt-5
-            [&_h3]:mb-2
-            [&_h3]:leading-relaxed
-          "
-        >
-          {/* <ReactMarkdown>{post.content || post.excerpt}</ReactMarkdown> */}
+      <div ref={postBodyRef} className="post-body">
+ <ReactMarkdown
+  components={{
+    h1: ({ children }) => {
+      const text = String(children);
+      const arabic = isArabic(text);
 
-          {/* Temporary fallback */}
-          <p>{post.content || post.excerpt}</p>
-        </div>
+      return (
+        <h1
+          dir={arabic ? "rtl" : "ltr"}
+          className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-[#143435] mt-8 mb-4 leading-tight ${
+            arabic ? "text-right font-ar font-extrabold text-4xl" : "text-left"
+          }`}
+        >
+          {children}
+        </h1>
+      );
+    },
+
+    h2: ({ children }) => {
+      const text = String(children);
+      const arabic = isArabic(text);
+
+      return (
+        <h2
+          dir={arabic ? "rtl" : "ltr"}
+          className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-[#143435] mt-6 mb-3 leading-snug ${
+            arabic ? "text-right font-ar font-extrabold" : "text-left"
+          }`}
+        >
+          {children}
+        </h2>
+      );
+    },
+
+    h3: ({ children }) => {
+      const text = String(children);
+      const arabic = isArabic(text);
+
+      return (
+        <h3
+          dir={arabic ? "rtl" : "ltr"}
+          className={`text-xl sm:text-2xl lg:text-3xl font-semibold text-[#143435] mt-5 mb-2 leading-snug ${
+            arabic ? "text-right font-ar font-extrabold" : "text-left"
+          }`}
+        >
+          {children}
+        </h3>
+      );
+    },
+
+    p: ({ children }) => {
+      const text = String(children);
+      const arabic = isArabic(text);
+
+      return (
+        <p
+          dir={arabic ? "rtl" : "ltr"}
+          className={`mb-4 text-base sm:text-lg leading-8 text-[#1c4a4c] ${
+            arabic ? "text-right font-ar font-extrabold font-3xl" : "text-left"
+          }`}
+        >
+          {children}
+        </p>
+      );
+    },
+
+    ul: ({ children }) => (
+      <ul className="list-disc pl-6 space-y-2 mb-4 text-base sm:text-lg text-[#1c4a4c]">
+        {children}
+      </ul>
+    ),
+
+    ol: ({ children }) => (
+      <ol className="list-decimal pl-6 space-y-2 mb-4 text-base sm:text-lg text-[#1c4a4c]">
+        {children}
+      </ol>
+    ),
+
+    li: ({ children }) => {
+      const text = String(children);
+      const arabic = isArabic(text);
+
+      return (
+        <li
+          dir={arabic ? "rtl" : "ltr"}
+          className={`leading-8 ${
+            arabic ? "text-right font-ar font-extrabold" : "text-left"
+          }`}
+        >
+          {children}
+        </li>
+      );
+    },
+
+    blockquote: ({ children }) => {
+      const text = String(children);
+      const arabic = isArabic(text);
+
+      return (
+        <blockquote
+          dir={arabic ? "rtl" : "ltr"}
+          className={`my-6 rounded-lg border-l-4 border-gray-300 bg-gray-100 px-4 py-3 italic text-base sm:text-lg text-[#1c4a4c] ${
+            arabic ? "text-right font-ar border-r-4 border-l-0 font-extrabold" : "text-left"
+          }`}
+        >
+          {children}
+        </blockquote>
+      );
+    },
+  }}
+>
+  {markdown}
+</ReactMarkdown>
+</div>
       </article>
 
       {/* Suggested Posts */}

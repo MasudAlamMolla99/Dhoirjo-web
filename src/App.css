@@ -3,3 +3,76 @@
   font-weight: 400;
   font-style: normal;
 }
+.post {
+  padding-block: var(--space-5);
+  max-width: min(100%, var(--read-max));
+  margin-inline: auto;
+}
+.post-title {
+  font-size: clamp(28px, 4vw, 34px);
+  line-height: 1.7;
+  margin: 0 0 var(--space-2) 0;
+  /* changed: page/post title in blue */
+  color: #143435;
+}
+.post-meta {
+  color: var(--muted);
+  margin-bottom: var(--space-4);
+}
+.post-cover {
+  margin: 0 0 var(--space-4) 0;
+}
+.post-cover img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+.post-body {
+  font-size: clamp(16px, 0.9vw + 12px, 20px);
+  line-height: 1.85;
+}
+/* changed: only body text (not headings) to blueish gray */
+.post-body p {
+  margin: 0 0 var(--space-3) 0;
+  color: #1c4a4c;
+}
+.post-body ul li {
+  color: #1c4a4c;
+}
+.post-body ol li {
+  color: #1c4a4c;
+}
+.post-body h2 {
+  font-size: 22px;
+  margin: var(--space-4) 0 var(--space-2);
+  color: #143435;
+  line-height: 1.7;
+}
+.post-body h3 {
+  font-size: 19px;
+  margin: var(--space-3) 0 var(--space-2);
+  color: #143435;
+  line-height: 1.7;
+}
+.post-body blockquote {
+  margin: var(--space-3) 0;
+  padding: var(--space-2) var(--space-3);
+  border-left: 3px solid var(--line);
+  background: color-mix(in oklab, var(--ink) 4%, transparent);
+  border-radius: 6px;
+}
+
+/* Arabic handling */
+.ar-inline {
+  font-family: var(--font-ar);
+  font-weight: 400;
+}
+.ar-separate {
+  font-family: var(--font-ar);
+  font-weight: 400;
+  text-align: right;
+  direction: rtl;
+  display: block;
+  margin: 1em 0;
+}

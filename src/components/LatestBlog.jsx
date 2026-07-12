@@ -180,14 +180,14 @@ export default function LatestBlog() {
 
   return (
     
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4 sm:mt-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-4 sm:mx-6 md:mx-8 lg:mx-24 mt-6">
       {categoryFilter && <h2>Category: {categoryFilter}</h2>}
       {tagFilter && <h2>Tag: #{tagFilter}</h2>}
 
-   {currentPosts.slice(0, 3).map((post) => (
+   {currentPosts.slice(0, 4).map((post) => (
   <article
     key={post.id}
-    className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col"
+    className="bg-gray-50 rounded-2xl  overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-300 flex flex-col"
   >
     {post.thumbnail && (
       <Link
@@ -214,10 +214,10 @@ export default function LatestBlog() {
       </div>
 
       {/* Title */}
-      <h2 className="text-2xl font-bold text-gray-900 mb-3 line-clamp-2">
+      <h2 className="text-2xl font-bold text-teal-700 mb-3 line-clamp-2">
         <Link
           to={`/post/${post.id}`}
-          className="hover:text-blue-600 transition-colors"
+          className="hover:text-teal-900 transition-colors"
         >
           {post.title}
         </Link>
@@ -235,7 +235,7 @@ export default function LatestBlog() {
             <Link
               key={t}
               to={`/?t=${t}`}
-              className="px-2 py-1 text-xs rounded-md bg-gray-50 text-gray-600 hover:bg-gray-100 transition"
+              className="px-2 py-1 text-xs rounded-md bg- text-gray-600 hover:bg-gray-100 transition"
             >
               #{t}
             </Link>
@@ -244,7 +244,7 @@ export default function LatestBlog() {
       )}
 
       {/* Meta */}
-      <div className="flex flex-wrap items-center gap-2 text-sm text-gray-500 mt-5 pt-4 border-t border-gray-100">
+      <div className="flex flex-wrap items-center gap-2 text-sm text-gray-500 font-medium mt-5 pt-4 border-t border-gray-100">
         <span>{post.date}</span>
         <span>•</span>
         <span>{getReadingTime(post.content)} মিনিট</span>
@@ -253,7 +253,7 @@ export default function LatestBlog() {
       {/* Button */}
       <Link
         to={`/post/${post.id}`}
-        className="mt-5 inline-flex items-center justify-center px-5 py-3 rounded-lg border border-black text-black font-medium hover:bg-black hover:text-white transition-all duration-300"
+        className="mt-5 inline-flex items-center justify-center px-5 py-3 rounded-lg border  text-teal-800 font-medium hover:bg-teal-700 hover:text-white transition-all duration-300"
       >
         আরো পড়ুন →
       </Link>

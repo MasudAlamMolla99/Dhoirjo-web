@@ -8,3 +8,18 @@
 }
 
 
+
+
+/* Arabic handling */
+.ar-inline {
+  font-family: var(--font-ar);
+  font-weight: 400;
+}
+.ar-separate {
+  font-family: var(--font-ar);
+  font-weight: 400;
+  text-align: right;
+  direction: rtl;
+  display: block;
+  margin: 1em 0;
+}

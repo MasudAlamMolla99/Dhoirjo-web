@@ -6,8 +6,8 @@ import LatestBlog from '../components/LatestBlog'
 const Home = () => {
   return (
    <>
-<HeroSection/>
-<h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center mt-4 xs:mt-6 sm:mt-8 md:mt-10 lg:mt-12">ব্লগসমূহ</h1>
+{/* <HeroSection/> */}
+<h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl  text-center mt-8 xs:mt-8 md:mt-10 lg:mt-12">ব্লগসমূহ</h1>
 <LatestBlog/>
    </>
   )
