@@ -1,4 +1,4 @@
-import Navbar from 'daisyui/components/navbar'
+
 import React from 'react'
 import HeroSection from '../components/HerSection'
 import LatestBlog from '../components/LatestBlog'

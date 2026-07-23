@@ -6,6 +6,8 @@ import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import "./App.css"
 import Post from "./pages/Post";
+import Qns from "./pages/Qns";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
         <Route path="/blog" element={<Blog />} />
            <Route path="/post/:id" element={<Post />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/qns" element={<Qns />} />
       </Routes>
+      <Footer/>
       
     </>
   );

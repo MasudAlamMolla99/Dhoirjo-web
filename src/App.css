@@ -1,5 +1,14 @@
-*{
-  font-family: Kalpurush, serif;
+/* Specify it in your CSS stylesheet */
+ *{
+  font-family: 'SolaimanLipi', sans-serif;
+}
+@font-face {
+  font-family: "PDMS Saleem Quran";
+  src: url("/fonts/PDMS_Saleem_QuranFont-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+}
+
+.font-ar {
+  font-family: "PDMS Saleem Quran", serif;
 }

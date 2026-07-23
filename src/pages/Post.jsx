@@ -10,6 +10,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { db } from "../firebase";
+import Card from "../components/Card";
 // import ReactMarkdown from "react-markdown";
 
 export default function Post() {
@@ -149,8 +150,8 @@ const isArabic = (text) =>
     <>
       {/* Main Post */}
    { console.log(markdown)}
-      <article className="max-w-4xl mx-auto px-4 py-5 md:py-10">
-        <h1 className="text-[clamp(28px,4vw,34px)] md:text-5xl font-bold text-teal-800 leading-relaxed md:leading-tight mb-6">
+      <article className=" bg-gray-50 max-w-4xl mx-auto px-4 py-5 md:py-10">
+        <h1 className="text-[clamp(28px,4vw,34px)] md:text-5xl font-bold text-teal-700 leading-relaxed md:leading-tight mb-6">
           {post.title}
         </h1>
 
@@ -182,8 +183,8 @@ const isArabic = (text) =>
       return (
         <h1
           dir={arabic ? "rtl" : "ltr"}
-          className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-[#143435] mt-8 mb-4 leading-tight ${
-            arabic ? "text-right font-ar font-extrabold text-4xl" : "text-left"
+          className={`text-2xl sm:text-2xl lg:text-4xl font-bold text-teal-700 mt-8 mb-4 leading-tight ${
+            arabic ? "text-right font-ar font-bold text-4xl" : "text-left"
           }`}
         >
           {children}
@@ -198,7 +199,7 @@ const isArabic = (text) =>
       return (
         <h2
           dir={arabic ? "rtl" : "ltr"}
-          className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-[#143435] mt-6 mb-3 leading-snug ${
+          className={`text-2xl sm:text-xl lg:text-4xl font-bold text-teal-700 mt-6 mb-3 leading-snug ${
             arabic ? "text-right font-ar font-extrabold" : "text-left"
           }`}
         >
@@ -214,7 +215,7 @@ const isArabic = (text) =>
       return (
         <h3
           dir={arabic ? "rtl" : "ltr"}
-          className={`text-xl sm:text-2xl lg:text-3xl font-semibold text-[#143435] mt-5 mb-2 leading-snug ${
+          className={`text-xl sm:text-2xl lg:text-3xl font-semibold text-teal-700 mt-5 mb-2 leading-snug ${
             arabic ? "text-right font-ar font-extrabold" : "text-left"
           }`}
         >
@@ -228,14 +229,16 @@ const isArabic = (text) =>
       const arabic = isArabic(text);
 
       return (
-        <p
-          dir={arabic ? "rtl" : "ltr"}
-          className={`mb-4 text-base sm:text-lg leading-8 text-[#1c4a4c] ${
-            arabic ? "text-right font-ar font-extrabold font-3xl" : "text-left"
-          }`}
-        >
-          {children}
-        </p>
+      <p
+  dir={arabic ? "rtl" : "ltr"}
+  className={`mb-4 leading-8 text-[#1c4a4c] ${
+    arabic
+      ? "text-right font-ar text-4xl font-normal leading-[2.6] md:text-2xl"
+      : "text-left text-xl sm:text-lg"
+  }`}
+>
+  {children}
+</p>
       );
     },
 
@@ -259,7 +262,7 @@ const isArabic = (text) =>
         <li
           dir={arabic ? "rtl" : "ltr"}
           className={`leading-8 ${
-            arabic ? "text-right font-ar font-extrabold" : "text-left"
+            arabic ? "text-right font-ar font-bold" : "text-left"
           }`}
         >
           {children}
@@ -292,64 +295,15 @@ const isArabic = (text) =>
       {/* Suggested Posts */}
       {suggestedPosts.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 py-20 mt-16 border-t border-slate-200">
-          <h2 className="text-3xl md:text-4xl font-bold text-teal-800 mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-teal-800 mb-10  mx-4 sm:mx-6 md:mx-8 lg:mx-16">
             আরও পড়ুন
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            {suggestedPosts.map((p) => (
-              <Link
-                key={p.id}
-                to={`/post/${p.id}`}
-                className="group block"
-              >
-                <article
-                  className="
-                    bg-white
-                    border
-                    border-slate-200
-                    rounded-2xl
-                    p-6
-                    h-full
-                    shadow-sm
-                    hover:shadow-xl
-                    hover:-translate-y-1
-                    transition-all
-                    duration-300
-                  "
-                >
-                  <h3
-                    className="
-                      text-lg
-                      font-bold
-                      text-teal-800
-                      mb-3
-                      line-clamp-2
-                      group-hover:text-teal-600
-                      transition-colors
-                    "
-                  >
-                    {p.title}
-                  </h3>
-
-                  <p
-                    className="
-                      text-teal-600
-                      text-sm
-                      leading-7
-                      line-clamp-6
-                    "
-                  >
-                    {p.excerpt || "বিস্তারিত পড়তে ক্লিক করুন..."}
-                  </p>
-
-                  <div className="mt-5 inline-flex items-center font-medium text-teal-600">
-                    আরও পড়ুন →
-                  </div>
-                </article>
-              </Link>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-4 sm:mx-6 md:mx-8 lg:mx-16 mt-6">
+  {suggestedPosts.map((p) => (
+    <Card post={p} getReadingTime={getReadingTime} />
+  ))}
+</div>
         </section>
       )}
     </>
