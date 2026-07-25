@@ -7,7 +7,11 @@ import Navbar from "./components/Navbar";
 import "./App.css"
 import Post from "./pages/Post";
 import Qns from "./pages/Qns";
+import Login from "./pages/Login";
 import Footer from "./components/Footer";
+import AdminPanel from "./pages/AdminPanel";
+import CreatePost from "./pages/CreatePost";
+import EditPost from "./pages/EditPost";
 
 function App() {
   return (
@@ -21,6 +25,17 @@ function App() {
            <Route path="/post/:id" element={<Post />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/qns" element={<Qns />} />
+
+
+
+        <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<AdminPanel />} />
+          
+          {/* This is for Writing a NEW post */}
+          <Route path="/admin/create" element={<CreatePost />} />
+          
+          {/* This is for Editing an OLD post */}
+          <Route path="/admin/edit/:id" element={<EditPost />} />
       </Routes>
       <Footer/>
       
