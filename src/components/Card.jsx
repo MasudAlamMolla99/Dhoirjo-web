@@ -27,7 +27,7 @@ const Card = ({post,getReadingTime}) => {
       <div className="mb-3">
         <Link
           to={`/?c=${post.category}`}
-          className="inline-flex px-3 py-1 text-xs font-medium border border-teal-700 rounded-full bg-gray-50 text-teal-700 hover:bg-teal-700 hover:text-white transition"
+          className="inline-flex px-3 py-1 text-xs font-medium border border-teal-700 rounded-full bg-teal-600 text-white hover:bg-teal-700  transition"
         >
           {post.category}
         </Link>
@@ -44,7 +44,7 @@ const Card = ({post,getReadingTime}) => {
       </h2>
 
       {/* Excerpt */}
-      <p className="text-gray-600 leading-relaxed line-clamp-3 flex-1">
+      <p className="text-gray-600 font-bold leading-relaxed line-clamp-3 flex-1">
         {post.excerpt}
       </p>
 
@@ -73,8 +73,9 @@ const Card = ({post,getReadingTime}) => {
       {/* Button */}
       <Link
         to={`/post/${post.id}`}
-        className="mt-5 inline-flex items-center justify-center px-5 py-3 rounded-lg border  text-teal-800 font-medium hover:bg-teal-700 hover:text-white transition-all duration-300"
-      >
+        className="mt-5 inline-flex items-center justify-center rounded-lg border border-teal-700 bg-teal-600 px-5 py-3 font-medium text-white transition-all duration-300 hover:bg-teal-700 focus:bg-teal-700 active:bg-teal-700 active:scale-95 hover:text-white focus:text-white active:text-white"
+     
+     >
         আরো পড়ুন →
       </Link>
     </div>

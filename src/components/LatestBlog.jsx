@@ -4,6 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 
 import { db } from "../firebase";
 import Card from "./Card";
+import Loader from "./Loader";
 
 export default function LatestBlog() {
   const [posts, setPosts] = useState([]);
@@ -171,11 +172,7 @@ export default function LatestBlog() {
 
   if (loading) {
     return (
-      <div
-        className="container"
-        style={{ padding: "20px", textAlign: "center" }}>
-        <p>লোড হচ্ছে...</p>
-      </div>
+     <Loader/>
     );
   }
 
