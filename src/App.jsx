@@ -12,6 +12,8 @@ import Footer from "./components/Footer";
 import AdminPanel from "./pages/AdminPanel";
 import CreatePost from "./pages/CreatePost";
 import EditPost from "./pages/EditPost";
+import UserProfile from "./pages/UserProfile";
+import Register from "./pages/auth/Register";
 
 function App() {
   return (
@@ -29,7 +31,10 @@ function App() {
         <Route path="/qns" element={<Qns />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/profile" element={<UserProfile />} />
+
 
         {/* This is for Writing a NEW post */}
         <Route path="/admin/create" element={<CreatePost />} />

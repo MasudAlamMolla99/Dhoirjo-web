@@ -4,6 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 
 import { db } from "../firebase";
 import Card from "../components/Card";
+import Loader from "../components/Loader";
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);
@@ -171,11 +172,7 @@ export default function Blog() {
 
   if (loading) {
     return (
-      <div
-        className="container"
-        style={{ padding: "20px", textAlign: "center" }}>
-        <p>লোড হচ্ছে...</p>
-      </div>
+      <Loader/>
     );
   }
 
@@ -211,24 +208,18 @@ export default function Blog() {
             }
 
             return (
-              <button className="mb-4"
-                key={index}
-                onClick={() => paginate(number)}
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  border: "none",
-                  borderRadius: "6px", // Rounded corners
-                  backgroundColor:
-                    currentPage === number ? "#1e4d50" : "#e2e8f0", // Dark Teal vs Light Gray
-                  color: currentPage === number ? "#ffffff" : "#333333",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  cursor: "pointer",
-                  transition: "background 0.2s",
-                }}>
-                {toBnDigits(number)}
-              </button>
+             <button
+  key={index}
+  onClick={() => paginate(number)}
+  className={`mb-4 flex h-10 w-10 items-center justify-center rounded-md text-lg font-bold transition-all duration-200
+    ${
+      currentPage === number
+        ? "bg-blue-700 text-white shadow-sm"
+        : "bg-slate-200 text-gray-800 hover:bg-blue-100 hover:text-blue-700"
+    }`}
+>
+  {toBnDigits(number)}
+</button>
             );
           })}
         </div>

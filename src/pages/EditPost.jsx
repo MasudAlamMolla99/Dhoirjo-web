@@ -112,7 +112,7 @@ export default function EditPost() {
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Enter post title"
                 required
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
               />
             </div>
 
@@ -127,7 +127,7 @@ export default function EditPost() {
                 value={excerpt}
                 onChange={(e) => setExcerpt(e.target.value)}
                 placeholder="Write a short description..."
-                className="w-full resize-none rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                className="w-full resize-none rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
               />
             </div>
 
@@ -141,7 +141,7 @@ export default function EditPost() {
                 value={thumbnail}
                 onChange={(e) => setThumbnail(e.target.value)}
                 placeholder="https://example.com/image.jpg"
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
               />
             </div>
 
@@ -156,7 +156,7 @@ export default function EditPost() {
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                   placeholder="Category"
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
                 />
               </div>
 
@@ -169,7 +169,7 @@ export default function EditPost() {
                   value={tags}
                   onChange={(e) => setTags(e.target.value)}
                   placeholder="react, firebase, blog"
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
                 />
               </div>
             </div>
@@ -186,7 +186,7 @@ export default function EditPost() {
                 onChange={(e) => setContent(e.target.value)}
                 placeholder="Write your article..."
                 required
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 font-mono outline-none transition resize-y focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                className="w-full rounded-xl border border-gray-300 px-4 py-3 font-mono outline-none transition resize-y focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
               />
             </div>
 
@@ -202,7 +202,7 @@ export default function EditPost() {
 
               <button
                 type="submit"
-                className="rounded-xl bg-teal-700 px-8 py-3 font-semibold text-white transition hover:bg-teal-800"
+                className="rounded-xl bg-blue-700 px-8 py-3 font-semibold text-white transition hover:bg-blue-800"
               >
                 Update Post
               </button>

@@ -81,7 +81,7 @@ export default function CreatePost() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
               />
             </div>
 
@@ -96,7 +96,7 @@ export default function CreatePost() {
                 placeholder="Write a short description..."
                 value={excerpt}
                 onChange={(e) => setExcerpt(e.target.value)}
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition resize-none focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition resize-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
               />
             </div>
 
@@ -111,7 +111,7 @@ export default function CreatePost() {
                 placeholder="https://example.com/image.jpg"
                 value={thumbnail}
                 onChange={(e) => setThumbnail(e.target.value)}
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
               />
             </div>
 
@@ -126,7 +126,7 @@ export default function CreatePost() {
                   type="text"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
                 />
               </div>
 
@@ -140,7 +140,7 @@ export default function CreatePost() {
                   placeholder="tech, news, education"
                   value={tags}
                   onChange={(e) => setTags(e.target.value)}
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
                 />
               </div>
             </div>
@@ -157,7 +157,7 @@ export default function CreatePost() {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 required
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 font-mono outline-none transition resize-y focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
+                className="w-full rounded-xl border border-gray-300 px-4 py-3 font-mono outline-none transition resize-y focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
               />
             </div>
 
@@ -173,7 +173,7 @@ export default function CreatePost() {
 
               <button
                 type="submit"
-                className="rounded-xl bg-teal-700 px-8 py-3 font-semibold text-white transition hover:bg-teal-800"
+                className="rounded-xl bg-blue-700 px-8 py-3 font-semibold text-white transition hover:bg-blue-800"
               >
                 প্রকাশ করুন
               </button>

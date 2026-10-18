@@ -1,9 +1,32 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'AlMajeedQuranic';
+  src: url('/fonts/arabic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
 
+@theme {
+  --font-ar: 'AlMajeedQuranic', serif;
+  --font-bn: 'SolaimanLipi', sans-serif;
+}
+
+/* Hard CSS fallback: Forces the Quranic font on any RTL node */
+.font-ar,
+[dir="rtl"] {
+  font-family: 'AlMajeedQuranic', 'Amiri', 'Traditional Arabic', serif !important;
+}
+
+/* Ensure Bengali default styling doesn't overwrite Arabic glyphs */
+.font-bn {
+  font-family: 'SolaimanLipi', sans-serif;
+}
 
 /* Arabic handling */
-.ar-inline {
+/* .ar-inline {
   font-family: var(--font-ar);
   font-weight: 400;
 }
@@ -14,4 +37,4 @@
   direction: rtl;
   display: block;
   margin: 1em 0;
-}
+} */

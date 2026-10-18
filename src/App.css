@@ -1,14 +1,24 @@
-/* Specify it in your CSS stylesheet */
- *{
-  font-family: 'SolaimanLipi', sans-serif;
-}
-/* @font-face {
-  font-family: "PDMS Saleem Quran";
-  src: url("/fonts/PDMS_Saleem_QuranFont-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
+/* 1. Import or define your font-faces if using local files or standard URLs */
+@font-face {
+  font-family: 'SolaimanLipi';
+  src: url('/fonts/SolaimanLipi.woff2') format('woff2'); /* Adjust path as needed */
+  font-display: swap;
 }
 
+@font-face {
+  font-family: 'PDMS Saleem Quran';
+  src: url('/fonts/PDMS_Saleem_Quran.woff2') format('woff2'); /* Adjust path as needed */
+  font-display: swap;
+}
+
+/* 2. Set SolaimanLipi as the global default font for the entire body */
+body {
+  font-family: 'SolaimanLipi', sans-serif;
+}
+
+/* 3. Automatically apply PDMS Saleem Quran when dir="rtl", lang="ar", or .font-ar is used */
+[dir="rtl"],
+[lang="ar"],
 .font-ar {
-  font-family: "PDMS Saleem Quran", serif;
-} */
+  font-family: 'PDMS Saleem Quran', serif;
+}

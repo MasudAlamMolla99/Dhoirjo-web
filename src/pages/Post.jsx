@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import Card from "../components/Card";
+import Loader from "../components/Loader";
 // import ReactMarkdown from "react-markdown";
 
 export default function Post() {
@@ -69,7 +70,7 @@ export default function Post() {
       } else if (AR_REGEX.test(txt)) {
         p.innerHTML = p.innerHTML.replace(
           /([\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]+)/g,
-          '<span class="font-semibold text-teal-900">$1</span>',
+          '<span class="font-semibold text-blue-900">$1</span>',
         );
       }
     });
@@ -127,11 +128,7 @@ export default function Post() {
   }, [id]);
 
   if (loading) {
-    return (
-      <div className="min-h-[50vh] flex items-center justify-center">
-        <p className="text-lg text-slate-600">লোড হচ্ছে...</p>
-      </div>
-    );
+   return <Loader/>
   }
 
   if (!post) {
@@ -143,15 +140,21 @@ export default function Post() {
   }
  
 const markdown = post.content || post.excerpt;
+
 const isArabic = (text) =>
   /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(text);
+const getText = (node) => {
+  if (typeof node === 'string') return node;
+  if (Array.isArray(node)) return node.map(getText).join('');
+  if (node && node.props && node.props.children) return getText(node.props.children);
+  return '';
+};
 
   return (
     <>
       {/* Main Post */}
-   { console.log(markdown)}
-      <article className=" bg-gray-50 max-w-4xl mx-auto px-4 py-5 md:py-10">
-        <h1 className="text-[clamp(28px,4vw,34px)] md:text-5xl font-bold text-teal-700 leading-relaxed md:leading-tight mb-6">
+      <article className=" bg-white max-w-5xl mx-auto px-4 py-5 md:py-10">
+        <h1 className="text-[clamp(28px,4vw,34px)] md:text-5xl font-bold text-black leading-relaxed md:leading-tight mb-6">
           {post.title}
         </h1>
 
@@ -173,18 +176,22 @@ const isArabic = (text) =>
           </figure>
         )}
 
-      <div ref={postBodyRef} className="post-body">
+
+
+
  <ReactMarkdown
   components={{
     h1: ({ children }) => {
-      const text = String(children);
+      const text = getText(children);
       const arabic = isArabic(text);
 
       return (
         <h1
           dir={arabic ? "rtl" : "ltr"}
-          className={`text-2xl sm:text-2xl lg:text-4xl font-bold text-teal-700 mt-8 mb-4 leading-tight ${
-            arabic ? "text-right font-ar font-bold text-4xl" : "text-left"
+          className={`font-bold text-black mt-8 mb-4 leading-tight ${
+            arabic
+              ? "text-right font-ar text-blue-900 text-4xl sm:text-5xl font-extrabold"
+              : "text-left text-2xl text-blue-900 sm:text-3xl lg:text-4xl"
           }`}
         >
           {children}
@@ -193,14 +200,16 @@ const isArabic = (text) =>
     },
 
     h2: ({ children }) => {
-      const text = String(children);
+      const text = getText(children);
       const arabic = isArabic(text);
 
       return (
         <h2
           dir={arabic ? "rtl" : "ltr"}
-          className={`text-2xl sm:text-xl lg:text-4xl font-bold text-teal-700 mt-6 mb-3 leading-snug ${
-            arabic ? "text-right font-ar font-extrabold" : "text-left"
+          className={`font-bold text-black mt-6 mb-3 leading-snug ${
+            arabic
+              ? "text-right text-blue-900 font-ar text-3xl sm:text-4xl font-extrabold"
+              : "text-left text-xl text-blue-900 sm:text-2xl lg:text-3xl"
           }`}
         >
           {children}
@@ -209,14 +218,16 @@ const isArabic = (text) =>
     },
 
     h3: ({ children }) => {
-      const text = String(children);
+      const text = getText(children);
       const arabic = isArabic(text);
 
       return (
         <h3
           dir={arabic ? "rtl" : "ltr"}
-          className={`text-xl sm:text-2xl lg:text-3xl font-semibold text-teal-700 mt-5 mb-2 leading-snug ${
-            arabic ? "text-right font-ar font-extrabold" : "text-left"
+          className={` font-bold text-black mt-5 mb-2 leading-snug ${
+            arabic
+              ? "text-right text-blue-900 font-ar text-2xl sm:text-3xl font-extrabold"
+              : "text-left text-lg text-blue-900 sm:text-xl lg:text-2xl font-semibold"
           }`}
         >
           {children}
@@ -225,44 +236,46 @@ const isArabic = (text) =>
     },
 
     p: ({ children }) => {
-      const text = String(children);
+      const text = getText(children);
       const arabic = isArabic(text);
 
       return (
-      <p
-  dir={arabic ? "rtl" : "ltr"}
-  className={`mb-4 leading-8 text-[#1c4a4c] ${
-    arabic
-      ? "text-right font-ar text-4xl font-normal leading-[2.6] md:text-2xl"
-      : "text-left text-xl sm:text-lg"
-  }`}
->
-  {children}
-</p>
+        <p
+          dir={arabic ? "rtl" : "ltr"}
+          className={`mb-4 text-black${
+            arabic
+              ? "text-right text-blue-900 font-ar text-2xl sm:text-3xl font-semibold leading-[2.2]"
+              : "text-left text-base sm:text-lg leading-7 font-bold"
+          }`}
+        >
+          {children}
+        </p>
       );
     },
 
     ul: ({ children }) => (
-      <ul className="list-disc pl-6 space-y-2 mb-4 text-base sm:text-lg text-[#1c4a4c]">
+      <ul className="font-bold list-disc ps-6 mb-4 space-y-2 text-blue-900">
         {children}
       </ul>
     ),
 
     ol: ({ children }) => (
-      <ol className="list-decimal pl-6 space-y-2 mb-4 text-base sm:text-lg text-[#1c4a4c]">
+      <ol className=" font-bold list-decimal ps-6 mb-4 space-y-2 text-blue-900">
         {children}
       </ol>
     ),
 
     li: ({ children }) => {
-      const text = String(children);
+      const text = getText(children);
       const arabic = isArabic(text);
 
       return (
         <li
           dir={arabic ? "rtl" : "ltr"}
-          className={`leading-8 ${
-            arabic ? "text-right font-ar font-bold" : "text-left"
+          className={`leading-relaxed ${
+            arabic
+              ? "text-right text-blue-900 font-ar text-xl sm:text-2xl font-bold"
+              : "text-left text-blue-900 text-base sm:text-lg font-bold"
           }`}
         >
           {children}
@@ -271,14 +284,16 @@ const isArabic = (text) =>
     },
 
     blockquote: ({ children }) => {
-      const text = String(children);
+      const text = getText(children);
       const arabic = isArabic(text);
 
       return (
         <blockquote
           dir={arabic ? "rtl" : "ltr"}
-          className={`my-6 rounded-lg border-l-4 border-gray-300 bg-gray-100 px-4 py-3 italic text-base sm:text-lg text-[#1c4a4c] ${
-            arabic ? "text-right font-ar border-r-4 border-l-0 font-extrabold" : "text-left"
+          className={`my-6 rounded-lg bg-gray-100 px-4 py-3 text-black ${
+            arabic
+              ? "text-right text-blue-900 font-ar text-xl sm:text-2xl font-bold border-r-4 border-l-0 border-black"
+              : "text-left text-blue-900 text-base sm:text-lg italic border-l-4 border-r-0 border-gray-300 font-bold "
           }`}
         >
           {children}
@@ -288,14 +303,17 @@ const isArabic = (text) =>
   }}
 >
   {markdown}
-</ReactMarkdown>
-</div>
+</ReactMarkdown> 
+{console.log(markdown)}
+
+{/* <ReactMarkdown>{markdown}</ReactMarkdown> */}
+
       </article>
 
       {/* Suggested Posts */}
       {suggestedPosts.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 py-20 mt-16 border-t border-slate-200">
-          <h2 className="text-3xl md:text-4xl font-bold text-teal-800 mb-10  mx-4 sm:mx-6 md:mx-8 lg:mx-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-10  mx-4 sm:mx-6 md:mx-8 lg:mx-16">
             আরও পড়ুন
           </h2>
 

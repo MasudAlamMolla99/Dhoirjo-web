@@ -177,59 +177,26 @@ export default function LatestBlog() {
   }
 
   return (
-    
+  <>
+  
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-4 sm:mx-6 md:mx-8 lg:mx-24 mt-6">
       {categoryFilter && <h2>Category: {categoryFilter}</h2>}
       {tagFilter && <h2>Tag: #{tagFilter}</h2>}
 
-   {currentPosts.slice(0, 4).map((post) => (
+   {currentPosts.slice(0, 3).map((post) => (
   <Card post={post} getReadingTime={getReadingTime} key={post.id}/>
 ))}
 
-      {/* --- NEW PAGINATION DESIGN ---
-      {totalPages > 1 && (
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "8px",
-            marginTop: "60px",
-            gridColumn: "1 / -1",
-          }}>
-          {getPageNumbers().map((number, index) => {
-            if (number === "...") {
-              return (
-                <span key={index} style={{ fontSize: "18px", color: "#888" }}>
-                  ...
-                </span>
-              );
-            }
 
-            return (
-              <button
-                key={index}
-                onClick={() => paginate(number)}
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  border: "none",
-                  borderRadius: "6px", // Rounded corners
-                  backgroundColor:
-                    currentPage === number ? "#1e4d50" : "#e2e8f0", // Dark Teal vs Light Gray
-                  color: currentPage === number ? "#ffffff" : "#333333",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  cursor: "pointer",
-                  transition: "background 0.2s",
-                }}>
-                {toBnDigits(number)}
-              </button>
-            );
-          })}
-        </div>
-      )} */}
     </div>
+    <div className="flex items-center justify-center mt-6">
+  <Link
+    to="/blog"
+    className="inline-block rounded-lg bg-blue-700 px-6 py-3 font-semibold text-white transition-colors duration-200 hover:bg-blue-700"
+  >
+    আরও ব্লগ পড়ুন
+  </Link>
+</div>
+    </>
   );
 }

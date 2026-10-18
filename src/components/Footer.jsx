@@ -2,53 +2,52 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200 text-dark mt-4">
-      <div className="max-w-7xl mx-auto px-6 py-4">
+    <footer className="bg-blue-900 border-t border-gray-200 text-dark mt-4">
+      <div className="max-w-7xl mx-auto px-6 py-6">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Column 1 - Logo & Socials */}
           <div>
-            <h2 className="text-3xl font-bold text-brand-primary mb-4 text-teal-700">
-              ধৈর্য
-            </h2>
+            <img className="h-16 w-auto brightness-0 invert " src="/dhoirjo-logo.svg" alt="" />
 
-            <p className="text-sm text-dark leading-6 mb-6">
-              Together we can bring hope and make a meaningful difference in
-              people's lives through kindness and compassion.
+            <p className="text-sm text-white leading-6 mb-6">
+            মানুষের কাছে সঠিক, নির্ভুল এবং শির্ক মুক্ত ইসলাম পৌঁছে দেওয়া এই ওয়েবসাইটের প্রধান লক্ষ্য
             </p>
 
-            <div className="flex items-center gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full border border-teal-700 flex items-center justify-center hover:bg-teal-700 hover:text-white transition"
-              >
-                <i className="fab fa-facebook-f"></i>
-              </a>
+           
+<div className="flex items-center gap-4">
+  <a
+    href="#"
+    className="w-10 h-10 rounded-full border border-white text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors duration-300"
+  >
+    <i className="fab fa-facebook-f"></i>
+  </a>
 
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full border border-teal-700 flex items-center justify-center hover:bg-teal-700 hover:text-white transition"
-              >
-                <i className="fab fa-instagram"></i>
-              </a>
+  <a
+    href="#"
+    className="w-10 h-10 rounded-full border border-white text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors duration-300"
+  >
+    <i className="fab fa-instagram"></i>
+  </a>
 
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full border border-teal-700 flex items-center justify-center hover:bg-teal-700 hover:text-white transition"
-              >
-                <i className="fab fa-x-twitter"></i>
-              </a>
+  <a
+    href="#"
+    className="w-10 h-10 rounded-full border border-white text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors duration-300"
+  >
+    <i className="fab fa-x-twitter"></i>
+  </a>
 
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full border border-teal-700 flex items-center justify-center hover:bg-teal-700 hover:text-white transition"
-              >
-                <i className="fab fa-youtube"></i>
-              </a>
-            </div>
+  <a
+    href="#"
+    className="w-10 h-10 rounded-full border border-white text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors duration-300"
+  >
+    <i className="fab fa-youtube"></i>
+  </a>
+</div>
+
           </div>
 
           {/* Column 2 */}
-          <div>
+          {/* <div>
             <h3 className="text-lg font-semibold mb-5">Menu</h3>
 
             <ul className="space-y-3">
@@ -88,10 +87,10 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Column 3 */}
-          <div>
+          {/* <div>
             <h3 className="text-lg font-semibold mb-5">Connect</h3>
 
             <ul className="space-y-3">
@@ -140,10 +139,10 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Column 4 */}
-          <div>
+          {/* <div>
             <h3 className="text-lg font-semibold mb-5">Support</h3>
 
             <ul className="space-y-3">
@@ -174,11 +173,11 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom */}
-        <div className="mt-4 border-t border-gray-200 pt-2 text-center text-sm text-teal-700">
+        <div className="mt-4 border-t border-gray-200 pt-2 text-center text-sm text-white">
           © {new Date().getFullYear()} ধৈর্য. All Rights Reserved.
         </div>
       </div>

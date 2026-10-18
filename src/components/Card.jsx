@@ -27,17 +27,17 @@ const Card = ({post,getReadingTime}) => {
       <div className="mb-3">
         <Link
           to={`/?c=${post.category}`}
-          className="inline-flex px-3 py-1 text-xs font-medium border border-teal-700 rounded-full bg-teal-600 text-white hover:bg-teal-700  transition"
+          className="inline-flex px-3 py-1 text-xs font-medium  rounded-full bg-blue-600 text-white hover:bg-blue-700  transition"
         >
           {post.category}
         </Link>
       </div>
 
       {/* Title */}
-      <h2 className="text-2xl font-bold text-teal-700 mb-3 line-clamp-2">
+      <h2 className="text-2xl font-bold text-blue-900 mb-3 line-clamp-2">
         <Link
           to={`/post/${post.id}`}
-          className="hover:text-teal-900 transition-colors"
+          className="hover:text-blue-900 transition-colors"
         >
           {post.title}
         </Link>
@@ -64,7 +64,7 @@ const Card = ({post,getReadingTime}) => {
       )}
 
       {/* Meta */}
-      <div className="flex flex-wrap items-center gap-2 text-sm text-gray-500 font-medium mt-5 pt-4 border-t border-gray-100">
+      <div className="flex flex-wrap items-center gap-2 text-sm text-gray-500 font-medium mt-3 pt-2 border-t border-gray-100">
         <span>{post.date}</span>
         <span>•</span>
         <span>{getReadingTime(post.content)} মিনিট</span>
@@ -73,7 +73,7 @@ const Card = ({post,getReadingTime}) => {
       {/* Button */}
       <Link
         to={`/post/${post.id}`}
-        className="mt-5 inline-flex items-center justify-center rounded-lg border border-teal-700 bg-teal-600 px-5 py-3 font-medium text-white transition-all duration-300 hover:bg-teal-700 focus:bg-teal-700 active:bg-teal-700 active:scale-95 hover:text-white focus:text-white active:text-white"
+        className="mt-5 inline-flex items-center justify-center rounded-lg  bg-blue-600 px-5 py-3 font-medium text-white transition-all duration-300 hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-700 active:scale-95 hover:text-white focus:text-white active:text-white"
      
      >
         আরো পড়ুন →

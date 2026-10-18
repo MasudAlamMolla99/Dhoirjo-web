@@ -62,7 +62,7 @@ export default function AdminPanel() {
 
           <Link
             to="/admin/create"
-            className="inline-flex items-center justify-center rounded-xl bg-teal-700 px-6 py-3 font-semibold text-white transition hover:bg-teal-800"
+            className="inline-flex items-center justify-center rounded-xl bg-blue-700 px-6 py-3 font-semibold text-white transition hover:bg-blue-800"
           >
             + Create New Post
           </Link>
@@ -72,7 +72,7 @@ export default function AdminPanel() {
         <div className="mb-8 rounded-2xl bg-white p-6 shadow">
           <h2 className="text-lg font-semibold text-gray-700">Total Posts</h2>
 
-          <p className="mt-2 text-5xl font-bold text-teal-700">
+          <p className="mt-2 text-5xl font-bold text-blue-700">
             {posts.length}
           </p>
         </div>
@@ -110,14 +110,14 @@ export default function AdminPanel() {
                 <div className="flex flex-wrap gap-3">
                   <Link
                     to={`/admin/edit/${post.id}`}
-                    className="rounded-full border border-teal-700 px-4 py-2 font-medium text-teal-700 transition hover:bg-teal-700 hover:text-white"
+                    className="rounded-md border border-blue-700 px-4 py-2 font-medium text-blue-700 transition hover:bg-blue-700 hover:text-white"
                   >
                     Edit
                   </Link>
 
                   <button
                     onClick={() => handleDelete(post.id)}
-                    className="rounded-full bg-red-600 px-4 py-2 font-medium text-white transition hover:bg-red-700"
+                    className="rounded-md bg-red-600 px-4 py-2 font-medium text-white transition hover:bg-red-700"
                   >
                     Delete
                   </button>
